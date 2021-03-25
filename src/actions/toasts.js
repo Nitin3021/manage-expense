@@ -1,4 +1,9 @@
-export const toastIt = (actionType = '') => ({
+export const toastIt = (actionType = '', text = '') => ({
     type: 'TOAST_IT',
-    actionType
+    actionType,
+    text
+});
+
+export const toastReset = () => ({
+    type: 'TOAST_RESET'
 });

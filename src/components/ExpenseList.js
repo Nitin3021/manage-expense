@@ -17,18 +17,20 @@ export const ExpenseList = (props) => (
                         <span>No Expenses!</span>
                     </div>
                 ) : (
-                        props.expenses.map((expense) => {
-                            return <ExpenseListItem key={expense.id} {...expense} />;
-                        })
-                    )
+                    props.expenses.map((expense) => {
+                        return <ExpenseListItem key={expense.id} {...expense} />;
+                    })
+                )
             }
         </div>
     </div>
 );
 
 const mapStateToProps = (state) => {
+    const groupId = (window.location.href).split('/dashboard/')[1];
+
     return {
-        expenses: selectExpenses(state.expenses, state.filters)
+        expenses: selectExpenses(groupId, state.expenses, state.filters)
     };
 };
 

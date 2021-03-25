@@ -8,13 +8,14 @@ import selectExpensesTotal from '../selectors/expenses-total';
 export const ExpensesSummary = ({ expenseCount, expensesTotal }) => {
     const expenseWord = expenseCount === 1 ? 'expense' : 'expenses';
     const formattedExpensesTotal = numeral(expensesTotal / 100).format('$0,0.00');
+    const groupId = (window.location.href).split('/dashboard/')[1];
 
     return (
         <div className="page-header">
             <div className="content-container">
                 <h1 className="page-header__title">Viewing <span>{expenseCount}</span> {expenseWord} totalling <span>{formattedExpensesTotal}</span> </h1>
                 <div className="page-header__actions">
-                    <Link className="button" to="/create">Add Expense</Link>
+                    <Link className="button" to={`/create/${groupId}`}>Add Expense</Link>
                 </div>    
             </div>
         </div>
@@ -22,7 +23,9 @@ export const ExpensesSummary = ({ expenseCount, expensesTotal }) => {
 };
 
 const mapStateToProps = (state) => {
-    const visibleExpenses = selectExpenses(state.expenses, state.filters);
+    const groupId = (window.location.href).split('/dashboard/')[1];
+
+    const visibleExpenses = selectExpenses(groupId, state.expenses, state.filters);
 
     return {
         expenseCount: visibleExpenses.length,

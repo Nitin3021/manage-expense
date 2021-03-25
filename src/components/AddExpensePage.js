@@ -6,12 +6,15 @@ import { toastIt } from '../actions/toasts'
 
 export class AddExpensePage extends React.Component {
     onSubmit = (expense) => {
+        const groupId = (window.location.href).split('/create/')[1];
+        expense["groupId"] = groupId;
+
         this.props.startAddExpense(expense);
-        this.props.toastIt({ 
-            actionType: 'add', 
-            text: `${expense.description} added!`
-        })
-        this.props.history.push('/');
+        this.props.toastIt(
+            'add', 
+            `${expense.description} added!`
+        )
+        this.props.history.push(`/dashboard/${groupId}`);
     };
 
     render() {

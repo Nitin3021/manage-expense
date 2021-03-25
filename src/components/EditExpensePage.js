@@ -6,21 +6,25 @@ import { toastIt } from '../actions/toasts';
 
 export class EditExpensePage extends React.Component {
     onSubmit = (expense) => {
+        const groupId = (window.location.href).split('/edit/')[1];
+
         this.props.startEditExpense(this.props.expense.id, expense);
         this.props.toastIt({
             actionType: 'edit',
             text: `${this.props.expense.description} modified!`
         })
-        this.props.history.push('/');
+        this.props.history.push(`/dashboard/${groupId}`);
     };
 
     onRemove = () => {
+        const groupId = (window.location.href).split('/edit/')[1];
+
         this.props.startRemoveExpense({ id: this.props.expense.id });
         this.props.toastIt({
             actionType: 'remove',
             text: `${this.props.expense.description} removed!`
         })
-        this.props.history.push('/');
+        this.props.history.push(`/dashboard/${groupId}`);
     };
 
     render() {
@@ -48,7 +52,7 @@ const mapStateToProps = (state, props) => ({
 });
 
 const mapDispatchToProps = (dispatch, props) => ({
-    startEditExpense: (id, expense) => dispatch(startEditExpense(id, expense)),
+    startEditExpense: (groupId, id, expense) => dispatch(startEditExpense(groupId, id, expense)),
     startRemoveExpense: (data) => dispatch(startRemoveExpense(data)),
     toastIt: (actionType, text) => dispatch(toastIt(actionType, text))
 });
