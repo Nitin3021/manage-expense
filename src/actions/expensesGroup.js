@@ -1,3 +1,4 @@
+import moment from 'moment'
 import database from '../firebase/firebase'
 
 export const addExpenseGroup = (expensesGroup) => ({
@@ -11,7 +12,10 @@ export const startAddExpenseGroup = (expensesGroupData = {}) => {
         const {
             description = ''
         } = expensesGroupData
-        const expensesGroup = { description }
+        const expensesGroup = { 
+            description,
+            createdAt: moment().valueOf()
+         }
 
         return database.ref(`users/${uid}/expensesGroup`).push(expensesGroup).then((ref) => {
             dispatch(addExpenseGroup({

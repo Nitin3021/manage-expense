@@ -1,4 +1,4 @@
-import React from "react"
+import React from 'react'
 import { connect } from 'react-redux'
 import ExpenseListGroupItem from './ExpenseListGroupItem'
 import { startAddExpenseGroup } from '../actions/expensesGroup'
@@ -8,7 +8,8 @@ export class ExpenseGroupPage extends React.Component {
         super(props)
 
         this.state = {
-            description: props.expensesGroup.length !== 0 ? props.expensesGroup.description : ''
+            description: '',
+            error: ''
         }
     }
 
@@ -19,17 +20,25 @@ export class ExpenseGroupPage extends React.Component {
 
     onSubmit = (e) => {
         e.preventDefault()
-        this.props.startAddExpenseGroup({ description: this.state.description })
+
+        if (!this.state.description) {
+            this.setState(() => ({ error: 'Please provide description' }))
+        } else {
+            this.setState(() => ({ error: '' }));
+            this.props.startAddExpenseGroup({ description: this.state.description })
+        }
     }
 
     render() {
         return (
             <div className="content-container">
                 <form className="form" onSubmit={this.onSubmit}>
+                    {this.state.error && <p className="form__error">{this.state.error}</p>}
                     <input
                         type="text"
                         placeholder="Add Group ('Home expense', 'Work expense', 'Trip expense', etc...)"
                         autoFocus
+                        className="text-input"
                         value={this.state.description}
                         onChange={this.onDescriptionChange}
                     />
@@ -37,7 +46,7 @@ export class ExpenseGroupPage extends React.Component {
                 </form>
 
                 <div className="list-header">
-                    <div className="show-for-mobile">Expenses Group</div>
+                    <div className="show-for-mobile">Expense Group</div>
                     <div className="show-for-desktop">Expenses Group</div>
                     <div className="show-for-desktop">Total Amount</div>
                 </div>
