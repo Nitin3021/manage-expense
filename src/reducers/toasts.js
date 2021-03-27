@@ -1,6 +1,6 @@
 const toastsReducerDefaultState = {
     actionType: '',
-    text: ''
+    text: '',
 };
 
 export default (state = toastsReducerDefaultState, action) => {
@@ -17,6 +17,11 @@ export default (state = toastsReducerDefaultState, action) => {
                 actionType: undefined,
                 text: undefined
             };
+        case 'TOAST_GROUP':
+            return {
+                ...state,
+                groupId: action.groupId
+            }
         default:
             return state;
     }

@@ -28,15 +28,19 @@ export class ExpenseGroupPage extends React.Component {
                 <form className="form" onSubmit={this.onSubmit}>
                     <input
                         type="text"
-                        placeholder="Expense Group Name"
+                        placeholder="Add Group ('Home expense', 'Work expense', 'Trip expense', etc...)"
                         autoFocus
                         value={this.state.description}
                         onChange={this.onDescriptionChange}
                     />
-
-                    <button>Add Expense Group</button>
+                    <button className="button">Add Expense Group</button>
                 </form>
 
+                <div className="list-header">
+                    <div className="show-for-mobile">Expenses Group</div>
+                    <div className="show-for-desktop">Expenses Group</div>
+                    <div className="show-for-desktop">Total Amount</div>
+                </div>
                 {
                     this.props.expensesGroup.length === 0 ? (
                         <div className="list-item list-item--message">

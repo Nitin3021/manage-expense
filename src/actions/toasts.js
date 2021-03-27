@@ -7,3 +7,8 @@ export const toastIt = (actionType = '', text = '') => ({
 export const toastReset = () => ({
     type: 'TOAST_RESET'
 });
+
+export const toastGroup = (groupId = '') => ({
+    type: 'TOAST_GROUP',
+    groupId
+})

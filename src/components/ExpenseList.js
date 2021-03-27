@@ -26,12 +26,8 @@ export const ExpenseList = (props) => (
     </div>
 );
 
-const mapStateToProps = (state) => {
-    const groupId = (window.location.href).split('/dashboard/')[1];
-
-    return {
-        expenses: selectExpenses(groupId, state.expenses, state.filters)
-    };
-};
+const mapStateToProps = (state) => ({
+    expenses: selectExpenses(state.toasts.groupId, state.expenses, state.filters)
+});
 
 export default connect(mapStateToProps)(ExpenseList);

@@ -6,25 +6,21 @@ import { toastIt } from '../actions/toasts';
 
 export class EditExpensePage extends React.Component {
     onSubmit = (expense) => {
-        const groupId = (window.location.href).split('/edit/')[1];
-
         this.props.startEditExpense(this.props.expense.id, expense);
-        this.props.toastIt({
-            actionType: 'edit',
-            text: `${this.props.expense.description} modified!`
-        })
-        this.props.history.push(`/dashboard/${groupId}`);
+        this.props.toastIt(
+            'edit',
+            `${this.props.expense.description} modified!`
+        )
+        this.props.history.push(`/dashboard/${this.props.groupId}`);
     };
 
     onRemove = () => {
-        const groupId = (window.location.href).split('/edit/')[1];
-
         this.props.startRemoveExpense({ id: this.props.expense.id });
-        this.props.toastIt({
-            actionType: 'remove',
-            text: `${this.props.expense.description} removed!`
-        })
-        this.props.history.push(`/dashboard/${groupId}`);
+        this.props.toastIt(
+            'remove',
+            `${this.props.expense.description} removed!`
+        )
+        this.props.history.push(`/dashboard/${this.props.groupId}`);
     };
 
     render() {
@@ -48,7 +44,8 @@ export class EditExpensePage extends React.Component {
 };
 
 const mapStateToProps = (state, props) => ({
-    expense: state.expenses.find((expense) => expense.id === props.match.params.id)
+    expense: state.expenses.find((expense) => expense.id === props.match.params.id),
+    groupId: state.toasts.groupId
 });
 
 const mapDispatchToProps = (dispatch, props) => ({
