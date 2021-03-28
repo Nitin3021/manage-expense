@@ -24,7 +24,7 @@ export class ExpenseGroupPage extends React.Component {
         if (!this.state.description) {
             this.setState(() => ({ error: 'Please provide description' }))
         } else {
-            this.setState(() => ({ error: '' }));
+            this.setState(() => ({ error: '', description: '' }));
             this.props.startAddExpenseGroup({ description: this.state.description })
         }
     }

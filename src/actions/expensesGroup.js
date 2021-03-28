@@ -49,3 +49,18 @@ export const startSetExpensesGroup = () => {
         })
     }
 }
+
+// Remove expense
+export const removeExpensesGroup = ({ id } = {}) => ({
+    type: 'REMOVE_EXPENSES_GROUP',
+    id
+});
+
+export const startRemoveExpensesGroup = ({ id } = {}) => {
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid;
+        return database.ref(`users/${uid}/expensesGroup/${id}`).remove().then(() => {
+            dispatch(removeExpensesGroup({ id }));
+        })
+    };
+};
