@@ -24,8 +24,8 @@ const ExpenseListGroupItem = (props) => {
             <div>
                 <h3 className="list-item__title">{props.description}</h3>
                 <span className="list-item__sub-title">{moment(props.createdAt).format('Do MMMM YYYY')}</span>
-                <button onClick={onRemoveGroup}>Delete</button>
             </div>
+            <button onClick={onRemoveGroup}><img className="list-item__deleteButton" src="/images/delete.png" /></button>
         </Link>
     )
 }

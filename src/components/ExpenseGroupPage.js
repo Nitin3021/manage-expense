@@ -48,7 +48,7 @@ export class ExpenseGroupPage extends React.Component {
                 <div className="list-header">
                     <div className="show-for-mobile">Expense Group</div>
                     <div className="show-for-desktop">Expenses Group</div>
-                    <div className="show-for-desktop">Total Amount</div>
+                    <div className="show-for-desktop">Action</div>
                 </div>
                 {
                     this.props.expensesGroup.length === 0 ? (

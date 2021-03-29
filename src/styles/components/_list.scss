@@ -62,3 +62,14 @@
         padding-left: $s-size;
     }
 }
+
+.list-item__deleteButton {
+    height: 5rem;
+    margin: $s-size 0 0 0;
+    opacity: 0.2;
+    width: 5rem;
+
+    &:hover {
+        opacity: 0.9;
+    };
+}
