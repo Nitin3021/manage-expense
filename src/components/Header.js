@@ -10,7 +10,7 @@ export const Header = (props) => (
                 <Link className="header__title" to="/group">
                     <h1>Expensify</h1>
                 </Link>
-                <p className="header__title">Welcome back, {props.displayName}!</p>
+                <p className="header__title__welcome">Welcome back, {props.displayName}!</p>
                 <button className="button button--link" onClick={props.startLogout}>Logout</button>
             </div>
         </div>

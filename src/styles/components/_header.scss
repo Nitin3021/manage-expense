@@ -16,3 +16,10 @@
         margin: 0;
     }
 }
+
+.header__title__welcome {
+    @extend .header__title;
+    align-items: center;
+    font-size: $m-size;
+    font-style: italic;
+}

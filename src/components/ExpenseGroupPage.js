@@ -38,7 +38,7 @@ export class ExpenseGroupPage extends React.Component {
                         type="text"
                         placeholder="Add Group ('Home expense', 'Work expense', 'Trip expense', etc...)"
                         autoFocus
-                        className="text-input"
+                        className="text-area-group"
                         value={this.state.description}
                         onChange={this.onDescriptionChange}
                     />
