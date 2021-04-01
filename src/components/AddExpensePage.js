@@ -9,7 +9,7 @@ export class AddExpensePage extends React.Component {
         expense["groupId"] = this.props.groupId;
         this.props.startAddExpense(expense);
         this.props.toastIt(
-            'add', 
+            'add',
             `${expense.description} added!`
         )
         this.props.history.push(`/dashboard/${this.props.groupId}`);
@@ -17,16 +17,18 @@ export class AddExpensePage extends React.Component {
 
     render() {
         return (
-            <div>
-                <div className="page-header">
-                    <div className="content-container">
-                        <h1 className="page-header__title">Add Expense</h1>
+            <div className="box-layout_expensepage">
+                <div>
+                    <div className="page-header">
+                        <div className="content-container">
+                            <h1 className="page-header__title">Add Expense</h1>
+                        </div>
                     </div>
-                </div>
-                <div className="content-container">
-                    <ExpenseForm
-                        onSubmit={this.onSubmit}
-                    />
+                    <div className="content-container">
+                        <ExpenseForm
+                            onSubmit={this.onSubmit}
+                        />
+                    </div>
                 </div>
             </div>
         );

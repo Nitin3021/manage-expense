@@ -20,3 +20,30 @@
     margin: 0 0 $m-size 0;
     line-height: 1;
 }
+
+.box-layout_expensesgroup {
+    background: url('/images/bg_expenseGroup.png');
+    background-size: cover;
+    opacity: 0.9;
+    overflow: hidden;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.box-layout_expenses {
+    background: url('/images/bg_expense.png');
+    background-size: cover;
+    opacity: 0.9;
+    overflow: hidden;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.box-layout_expensepage {
+    background: url('/images/bg_expenseForm.png');
+    background-size: cover;
+    opacity: 0.9;
+    overflow: hidden;
+    min-height: 100vh;
+    width: 100%;
+}

@@ -31,36 +31,38 @@ export class ExpenseGroupPage extends React.Component {
 
     render() {
         return (
-            <div className="content-container">
-                <form className="form" onSubmit={this.onSubmit}>
-                    {this.state.error && <p className="form__error">{this.state.error}</p>}
-                    <input
-                        type="text"
-                        placeholder="Add Group ('Home expense', 'Work expense', 'Trip expense', etc...)"
-                        autoFocus
-                        className="text-area-group"
-                        value={this.state.description}
-                        onChange={this.onDescriptionChange}
-                    />
-                    <button className="button">Add Expense Group</button>
-                </form>
+            <div className="box-layout_expensesgroup">
+                <div className="content-container">
+                    <form className="form" onSubmit={this.onSubmit}>
+                        {this.state.error && <p className="form__error">{this.state.error}</p>}
+                        <input
+                            type="text"
+                            placeholder="Add Group ('Home expense', 'Work expense', 'Trip expense', etc...)"
+                            autoFocus
+                            className="text-area-group"
+                            value={this.state.description}
+                            onChange={this.onDescriptionChange}
+                        />
+                        <button className="button">Add Expense Group</button>
+                    </form>
 
-                <div className="list-header">
-                    <div className="show-for-mobile">Expense Group</div>
-                    <div className="show-for-desktop">Expenses Group</div>
-                    <div className="show-for-desktop">Action</div>
+                    <div className="list-header">
+                        <div className="show-for-mobile">Expense Group</div>
+                        <div className="show-for-desktop">Expenses Group</div>
+                        <div className="show-for-desktop">Action</div>
+                    </div>
+                    {
+                        this.props.expensesGroup.length === 0 ? (
+                            <div className="list-item list-item--message">
+                                <span>No Expenses!</span>
+                            </div>
+                        ) : (
+                            this.props.expensesGroup.map((expenseGroup) => {
+                                return <ExpenseListGroupItem key={expenseGroup.id} {...expenseGroup} />
+                            })
+                        )
+                    }
                 </div>
-                {
-                    this.props.expensesGroup.length === 0 ? (
-                        <div className="list-item list-item--message">
-                            <span>No Expenses!</span>
-                        </div>
-                    ) : (
-                        this.props.expensesGroup.map((expenseGroup) => {
-                            return <ExpenseListGroupItem key={expenseGroup.id} {...expenseGroup} />
-                        })
-                    )
-                }
             </div>
         )
     }
