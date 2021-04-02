@@ -15,13 +15,20 @@ export class AddExpensePage extends React.Component {
         this.props.history.push(`/dashboard/${this.props.groupId}`);
     };
 
+    onButtonClick = () => {
+        this.props.history.push(`/dashboard/${this.props.groupId}`);
+    }
+
     render() {
         return (
             <div className="box-layout_expensepage">
                 <div>
                     <div className="page-header">
                         <div className="content-container">
-                            <h1 className="page-header__title">Add Expense</h1>
+                            <div className="box_layout_expensepageheader">
+                                <h1 className="page-header__title">Add Expense</h1>
+                                <button className="button button--expensepage" onClick={this.onButtonClick}>Back</button>
+                            </div>
                         </div>
                     </div>
                     <div className="content-container">
