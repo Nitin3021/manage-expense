@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router';
 import ExpenseForm from './ExpenseForm';
 import { startAddExpense } from '../actions/expenses';
 import { toastIt } from '../actions/toasts'
@@ -19,9 +20,16 @@ export class AddExpensePage extends React.Component {
         this.props.history.push(`/dashboard/${this.props.groupId}`);
     }
 
+    checkLink = () => {
+        if (this.props.expensesGroupMatch === undefined) {
+            return <Redirect to='/InvalidId' />
+        }
+    }
+
     render() {
         return (
             <div className="box-layout_expensepage">
+                {this.checkLink()}
                 <div>
                     <div className="page-header">
                         <div className="content-container">
@@ -43,7 +51,8 @@ export class AddExpensePage extends React.Component {
 };
 
 const mapStateToProps = (state) => ({
-    groupId: state.toasts.groupId
+    groupId: state.toasts.groupId,
+    expensesGroupMatch: state.expensesGroup.find((expenseGroup) => expenseGroup.id === state.toasts.groupId)
 });
 
 const mapDispatchToProps = (dispatch) => ({

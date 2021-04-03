@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
 import numeral from 'numeral';
 import selectExpenses from '../selectors/expenses';
@@ -14,13 +15,20 @@ export const ExpensesSummary = (props) => {
         props.toastGroup(props.groupId)
     })
 
+    const checkLink = () => {
+        if (props.expensesGroupMatch === undefined) {
+            return <Redirect to='/InvalidId' />
+        }
+    }
+
     return (
         <div className="page-header">
+            {checkLink()}
             <div className="content-container">
                 <h1 className="page-header__title">Viewing <span>{props.expenseCount}</span> {expenseWord} totalling <span>{formattedExpensesTotal}</span> </h1>
                 <div className="page-header__actions">
                     <Link className="button" to={`/create/${props.groupId}`}>Add Expense</Link>
-                </div>    
+                </div>
             </div>
         </div>
     );
@@ -33,6 +41,7 @@ const mapStateToProps = (state) => {
     return {
         expenseCount: visibleExpenses.length,
         expensesTotal: selectExpensesTotal(visibleExpenses),
+        expensesGroupMatch: state.expensesGroup.find((expenseGroup) => expenseGroup.id === groupId),
         groupId
     };
 };
