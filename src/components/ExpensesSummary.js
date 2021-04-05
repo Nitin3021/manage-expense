@@ -25,6 +25,7 @@ export const ExpensesSummary = (props) => {
         <div className="page-header">
             {checkLink()}
             <div className="content-container">
+                <h1 className="page-header__title">Group: <span>{props.expenseGroupName}</span></h1>
                 <h1 className="page-header__title">Viewing <span>{props.expenseCount}</span> {expenseWord} totalling <span>{formattedExpensesTotal}</span> </h1>
                 <div className="page-header__actions">
                     <Link className="button" to={`/create/${props.groupId}`}>Add Expense</Link>
@@ -42,6 +43,7 @@ const mapStateToProps = (state) => {
         expenseCount: visibleExpenses.length,
         expensesTotal: selectExpensesTotal(visibleExpenses),
         expensesGroupMatch: state.expensesGroup.find((expenseGroup) => expenseGroup.id === groupId),
+        expenseGroupName: state.expensesGroup.find((expenseGroup) => expenseGroup.id === groupId).description,
         groupId
     };
 };

@@ -42,6 +42,7 @@ export class ExpenseGroupPage extends React.Component {
                             className="text-area-group"
                             value={this.state.description}
                             onChange={this.onDescriptionChange}
+                            maxLength="30"
                         />
                         <button className="button">Add Expense Group</button>
                     </form>
