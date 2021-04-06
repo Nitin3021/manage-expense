@@ -19,8 +19,8 @@ const createMockStore = configureMockStore([thunk]);
 
 beforeEach((done) => {
     const expensesData = {};
-    expenses.forEach(({ id, description, notes, amount, createdAt }) => {
-        expensesData[id] = { description, notes, amount, createdAt };
+    expenses.forEach(({ id, description, notes, amount, createdAt, groupId }) => {
+        expensesData[id] = { description, notes, amount, createdAt, groupId };
     });
     database.ref(`users/${uid}/expenses`).set(expensesData).then(() => done());
 });
@@ -94,7 +94,8 @@ test('should add expense to database and store', (done) => {
         description: 'Mouse',
         amount: 3000,
         note: 'This is a moose',
-        createdAt: 1000
+        createdAt: 1000,
+        groupId: 'Home Expense'
     };
 
     store.dispatch(startAddExpense(expenseData)).then(() => {
@@ -120,7 +121,8 @@ test('should add expense with defaults to database and store', (done) => {
         description: '', 
         note: '', 
         amount: 0, 
-        createdAt: 0 
+        createdAt: 0,
+        groupId: ''
     };
 
     store.dispatch(startAddExpense({})).then(() => {

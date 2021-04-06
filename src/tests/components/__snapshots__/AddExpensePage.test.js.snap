@@ -1,26 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render AddExpensePage correctly 1`] = `
-<div>
-  <div
-    className="page-header"
-  >
+<div
+  className="box-layout_expensepage"
+>
+  <Redirect
+    to="/InvalidId"
+  />
+  <div>
+    <div
+      className="page-header"
+    >
+      <div
+        className="content-container"
+      >
+        <div
+          className="box_layout_expensepageheader"
+        >
+          <h1
+            className="page-header__title"
+          >
+            Add Expense
+          </h1>
+          <button
+            className="button button--expensepage"
+            onClick={[Function]}
+          >
+            Back
+          </button>
+        </div>
+      </div>
+    </div>
     <div
       className="content-container"
     >
-      <h1
-        className="page-header__title"
-      >
-        Add Expense
-      </h1>
+      <ExpenseForm
+        onSubmit={[Function]}
+      />
     </div>
-  </div>
-  <div
-    className="content-container"
-  >
-    <ExpenseForm
-      onSubmit={[Function]}
-    />
   </div>
 </div>
 `;

@@ -1,41 +1,59 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render EditExpensePage correctly 1`] = `
-<div>
-  <div
-    className="page-header"
-  >
+<div
+  className="box-layout_expensepage"
+>
+  <Redirect
+    to="/InvalidId"
+  />
+  <div>
+    <div
+      className="page-header"
+    >
+      <div
+        className="content-container"
+      >
+        <div
+          className="box_layout_expensepageheader"
+        >
+          <h1
+            className="page-header__title"
+          >
+            Edit Expense
+          </h1>
+          <button
+            className="button button--expensepage"
+            onClick={[Function]}
+          >
+            Back
+          </button>
+        </div>
+      </div>
+    </div>
     <div
       className="content-container"
     >
-      <h1
-        className="page-header__title"
-      >
-        Edit Expense
-      </h1>
-    </div>
-  </div>
-  <div
-    className="content-container"
-  >
-    <ExpenseForm
-      expense={
-        Object {
-          "amount": 4500,
-          "createdAt": 345600000,
-          "description": "Credit Card",
-          "id": "3",
-          "notes": "",
+      <ExpenseForm
+        expense={
+          Object {
+            "amount": 4500,
+            "createdAt": 345600000,
+            "description": "Credit Card",
+            "groupId": "",
+            "id": "3",
+            "notes": "",
+          }
         }
-      }
-      onSubmit={[Function]}
-    />
-    <button
-      className="button button--secondary"
-      onClick={[Function]}
-    >
-      Remove Expense
-    </button>
+        onSubmit={[Function]}
+      />
+      <button
+        className="button button--secondary"
+        onClick={[Function]}
+      >
+        Remove Expense
+      </button>
+    </div>
   </div>
 </div>
 `;

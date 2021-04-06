@@ -4,9 +4,18 @@ exports[`should correctly render ExpenseSummary with 1 expense 1`] = `
 <div
   className="page-header"
 >
+  <Redirect
+    to="/InvalidId"
+  />
   <div
     className="content-container"
   >
+    <h1
+      className="page-header__title"
+    >
+      Group: 
+      <span />
+    </h1>
     <h1
       className="page-header__title"
     >
@@ -27,7 +36,7 @@ exports[`should correctly render ExpenseSummary with 1 expense 1`] = `
     >
       <Link
         className="button"
-        to="/create"
+        to="/create/undefined"
       >
         Add Expense
       </Link>
@@ -40,9 +49,18 @@ exports[`should correctly render ExpenseSummary with multiple expenses 1`] = `
 <div
   className="page-header"
 >
+  <Redirect
+    to="/InvalidId"
+  />
   <div
     className="content-container"
   >
+    <h1
+      className="page-header__title"
+    >
+      Group: 
+      <span />
+    </h1>
     <h1
       className="page-header__title"
     >
@@ -63,7 +81,7 @@ exports[`should correctly render ExpenseSummary with multiple expenses 1`] = `
     >
       <Link
         className="button"
-        to="/create"
+        to="/create/undefined"
       >
         Add Expense
       </Link>

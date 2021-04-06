@@ -12,17 +12,23 @@ exports[`should render Header correctly 1`] = `
     >
       <Link
         className="header__title"
-        to="/dashboard"
+        to="/group"
       >
         <h1>
           Expensify
         </h1>
       </Link>
+      <p
+        className="header__title__welcome"
+      >
+        Welcome back, 
+        !
+      </p>
       <button
         className="button button--link"
         onClick={[Function]}
       >
-        LogOut
+        Logout
       </button>
     </div>
   </div>
