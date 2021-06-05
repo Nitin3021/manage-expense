@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render ExpenseListGroupItem correctly 1`] = `
+<div>
+  <Link
+    className="list-item"
+    to="/dashboard/1"
+  >
+    <div>
+      <h3
+        className="list-item__title"
+      >
+        Home Expense
+      </h3>
+      <span
+        className="list-item__sub-title"
+      >
+        1st January 1970
+      </span>
+    </div>
+    <img
+      className="list-item__deleteButton"
+      onClick={[Function]}
+      src="/images/delete.png"
+    />
+  </Link>
+  <ModalDeletion
+    handleClearSelectedOption={[Function]}
+    onRemoveGroup={[Function]}
+  />
+</div>
+`;

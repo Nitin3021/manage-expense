@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render ExpenseGroupPage correctly 1`] = `
+<div
+  className="box-layout_expensesgroup"
+>
+  <div
+    className="content-container"
+  >
+    <form
+      className="form"
+      onSubmit={[Function]}
+    >
+      <input
+        autoFocus={true}
+        className="text-area-group"
+        maxLength="30"
+        onChange={[Function]}
+        placeholder="Add Group ('Home expense', 'Work expense', 'Trip expense', etc...)"
+        type="text"
+        value=""
+      />
+      <button
+        className="button"
+      >
+        Add Expense Group
+      </button>
+    </form>
+    <div
+      className="list-header"
+    >
+      <div
+        className="show-for-mobile"
+      >
+        Expense Group
+      </div>
+      <div
+        className="show-for-desktop"
+      >
+        Expenses Group
+      </div>
+      <div
+        className="show-for-desktop"
+      >
+        Action
+      </div>
+    </div>
+    <Connect(ExpenseListGroupItem)
+      createdAt={0}
+      description="Home Expense"
+      id="1"
+      key="1"
+    />
+    <Connect(ExpenseListGroupItem)
+      createdAt={-345600000}
+      description="Work Expense"
+      id="2"
+      key="2"
+    />
+    <Connect(ExpenseListGroupItem)
+      createdAt={345600000}
+      description="Vacay Expense"
+      id="3"
+      key="3"
+    />
+  </div>
+</div>
+`;

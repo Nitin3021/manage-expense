@@ -55,7 +55,7 @@ export class ExpenseGroupPage extends React.Component {
                     {
                         this.props.expensesGroup.length === 0 ? (
                             <div className="list-item list-item--message">
-                                <span>No Expenses!</span>
+                                <span>No Expense Group... Add one now!</span>
                             </div>
                         ) : (
                             this.props.expensesGroup.map((expenseGroup) => {
