@@ -27,6 +27,7 @@ export const ExpensesSummary = (props) => {
             <div className="content-container">
                 <h1 className="page-header__title">Group: <span>{props.expenseGroupName}</span></h1>
                 <h1 className="page-header__title">Viewing <span>{props.expenseCount}</span> {expenseWord} totalling <span>{formattedExpensesTotal}</span> </h1>
+                <p>{props.filteredExpenseCount} expense hidden due to filter</p>
                 <div className="page-header__actions">
                     <Link className="button" to={`/create/${props.groupId}`}>Add Expense</Link>
                 </div>
@@ -38,10 +39,11 @@ export const ExpensesSummary = (props) => {
 const mapStateToProps = (state) => {
     const groupId = (window.location.href).split('/dashboard/')[1];
     const visibleExpenses = selectExpenses(groupId, state.expenses, state.filters);
-
+    
     return {
         expenseCount: visibleExpenses.length,
         expensesTotal: selectExpensesTotal(visibleExpenses),
+        filteredExpenseCount: (state.expenses.filter((expense) => expense.groupId === groupId).length) - visibleExpenses.length,
         expensesGroupMatch: state.expensesGroup.find((expenseGroup) => expenseGroup.id === groupId),
         expenseGroupName: state.expensesGroup.find((expenseGroup) => expenseGroup.id === groupId).description,
         groupId
