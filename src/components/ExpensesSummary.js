@@ -27,7 +27,7 @@ export const ExpensesSummary = (props) => {
             <div className="content-container">
                 <h1 className="page-header__title">Group: <span>{props.expenseGroupName}</span></h1>
                 <h1 className="page-header__title">Viewing <span>{props.expenseCount}</span> {expenseWord} totalling <span>{formattedExpensesTotal}</span> </h1>
-                <p>{props.filteredExpenseCount} expense hidden due to filter</p>
+                <p>{props.filteredExpenseCount} expense hidden due to filterc</p>
                 <div className="page-header__actions">
                     <Link className="button" to={`/create/${props.groupId}`}>Add Expense</Link>
                 </div>
